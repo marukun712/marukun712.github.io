@@ -1,0 +1,13 @@
+---
+import { getEntry, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+
+const entry = await getEntry("notes", "index");
+const { Content } = entry ? await render(entry) : { Content: null };
+---
+
+<Layout>
+  <div class="flex flex-col wrap-break-word gap-3 mt-4">
+    {Content && <Content />}
+  </div>
+</Layout>

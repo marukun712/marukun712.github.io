@@ -1,0 +1,23 @@
+---
+import ThemeToggle from "@/components/ThemeToggle";
+---
+
+<header class="top-0 px-4 py-2 md:py-10 flex items-center">
+  <div class="size-9"></div>
+  <div class="flex h-4 text-center items-center space-x-2 text-sm mx-auto">
+    <a
+      href="/"
+      class="text-foreground hover:text-foreground/80"
+      aria-label="home"
+    >home</a>
+    <span class="text-foreground/60">|</span>
+    <a
+      href="/notes"
+      class="text-foreground hover:text-foreground/80"
+      aria-label="notes"
+    >notes</a>
+  </div>
+  <div class="size-9">
+    <ThemeToggle client:load />
+  </div>
+</header>

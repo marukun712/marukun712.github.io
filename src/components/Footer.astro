@@ -1,0 +1,22 @@
+---
+import { GITHUB_URL } from "@/config";
+---
+
+<footer
+  class="bottom-0 px-4 py-2 md:py-10 flex items-center"
+>
+  <div class="flex h-4 text-center items-center space-x-2 text-sm mx-auto">
+    <a
+      href="/notes/"
+      class="grow-1 text-foreground hover:text-foreground/80"
+    >notes</a>
+    <span class="text-foreground/60">|</span>
+    <a
+      href={GITHUB_URL}
+      class="text-foreground hover:text-foreground/80"
+      target="_blank"
+      rel="noreferrer"
+      aria-label="github"
+    >GitHub</a>
+  </div>
+</footer>

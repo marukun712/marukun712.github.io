@@ -1,0 +1,50 @@
+---
+import { type CollectionEntry, getCollection, render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import Breadcrumbs from "@/components/Breadcrumbs.astro";
+import NoteNavigation from "@/components/NoteNavigation.astro";
+import TagList from "@/components/TagList";
+import { trimRelPath, toSlug } from "@/utils/slug";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("notes");
+
+  return entries.map((note) => {
+    const path = trimRelPath(note.filePath) ?? note.id;
+    return {
+      params: { slug: toSlug(path) },
+      props: { note, path },
+    };
+  });
+}
+
+type Props = {
+  note: CollectionEntry<"notes">;
+  path: string;
+};
+
+const { note, path } = Astro.props;
+const { Content, remarkPluginFrontmatter } = await render(note);
+---
+
+<Layout title={remarkPluginFrontmatter.title}>
+  {/* Title */}
+  <Breadcrumbs path={path} type="notes" isFolder={false} />
+  <NoteNavigation prev={note.data.prev} next={note.data.next} />
+  <h1 class="text-4xl font-bold tracking-tight">{remarkPluginFrontmatter.title}</h1>
+  <div class="py-3 flex justify-between gap-4 text-sm text-muted-foreground">
+    <div class="flex-grow items-center">
+    {
+      note.data.tags.length > 0 && (
+        <TagList tags={note.data.tags} client:load />
+      )
+      }
+    </div>
+  </div>
+  <hr />
+  {/* Main Content */}
+  <div class="flex flex-col wrap-break-word gap-3 mt-4">
+    <Content />
+  </div>
+  <NoteNavigation prev={note.data.prev} next={note.data.next} />
+</Layout>
