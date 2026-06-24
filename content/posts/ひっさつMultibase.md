@@ -1,9 +1,11 @@
 この記事は、[麻布麻衣 Advent Calendar](https://adventar.org/calendars/12627) 1日目の記事です。
 テスト投稿を兼ねています。
 # やること
+
 必殺マイマイモード きゅんを(いろいろなMultibaseでエンコードしてから)デコードしちゃえ
 
 # Multibaseってなに
+
 バイナリをテキストとして表現するbase〇〇(base64,base58 etc...)の先頭にそれぞれに対応したプレフィックスをつけて、どのbase〇〇かわかるようにしたもの。
 
 # base58btc
