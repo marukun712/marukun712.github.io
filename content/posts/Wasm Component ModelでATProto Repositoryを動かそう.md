@@ -1,11 +1,13 @@
 この記事は、[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)15日目の記事です。
 
 # はじめに
+
 ATProtoを触っていると、一度や二度はブラウザでリポジトリを動かしたり、多言語でリポジトリを動かしたくなる時があるかと思います。
 
 そこで、今回はWasmの力を使って多言語で動くATProto Repositoryを作っていきます。
 
 # スキーマ定義
+
 Wasm Component Modelでは、WIT(WebAssembly Interface Types)で、コンポーネント間のモジュールが扱うデータ型などを定義することができます。
 
 ATProtoのリポジトリの基本的な操作ができるように、以下のようにスキーマ定義をします。
@@ -620,6 +622,7 @@ export async function init(sk: string, didKey: string) {
 `repo`の型定義が自動生成されているため、`repo.getRecord(rpath)`のようなwitで定義したメソッドを型保管が効いた状態で呼び出すことができます。
 
 # おわりに
+
 最後までお読みいただき、ありがとうございました。
 
 

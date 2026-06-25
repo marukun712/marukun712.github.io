@@ -20,7 +20,6 @@
 	- コスプレ撮影・フィギュア撮影・聖地巡礼などします
 
 ---
-
 # SNS/identifier
 
 - GitHub https://github.com/marukun712
@@ -31,14 +30,12 @@
 - Discord `maril_445`
 
 ---
-
 # Tech
 触ったことのある技術など
 
 ![My Skills](https://skillicons.dev/icons?i=ts,js,py,cs,go,rust,ruby,nix,html,css,bun,nodejs,remix,nextjs,tailwind,threejs,vscode,linux,git,github,docker,unity)
 
 ---
-
 # Projects
 
 ## イキヅライブ聖地巡礼マップ
@@ -51,7 +48,8 @@ https://marukun712.github.io/ikizulive-map/
 
 https://github.com/marukun712/kokoro
 
-エンジニアファーストな人形キャラクター向けメッシュ変形ライブラリ
+`@kokoro/rig`は、エンジニアのための2Dキャラクターメッシュ変形ライブラリです。既存のツール・ライブラリはGUI操作を前提としており、表現としては豊かなものの、GUI・概念の学習コストが高く、すぐにキャラクターを動かすことができません。本ライブラリでは、キャラクターの変形に複雑な概念を用いません。キャラクターの変形は、すべて`(u,v) => 変形量`の関数として記述されます。ポーズの合成・補完も、関数を合成するような感覚で実装できます。さらに、深度推定モジュールと組み合わせることで、深度情報に基づいて各頂点の変形量が自動でスケールされます。
+(READMEより)
 
 サイボウズ・ラボユース採択プロジェクト
 
@@ -60,6 +58,7 @@ https://github.com/marukun712/kokoro
 https://github.com/marukun712/polka
 
 polkaは、タグとリンクでつながる新しい分散型Webプロトコルです。「検証可能なWeb 1.0」をコンセプトに、個人サイトの自由さと、分散型技術による信頼性を両立させます。
+(https://polka-docs.netlify.app/ より)
 
 SecHack365採択プロジェクト
 
@@ -67,7 +66,8 @@ SecHack365採択プロジェクト
 
 https://github.com/marukun712/aikyo
 
-aikyoは、AIキャラクター同士が会話するためのフレームワークです。
+`aikyo`は、**人間と複数のAIコンパニオンが対等に会話**し、共存できる環境を 設計するための新しいフレームワークです。近年のLLMの進歩に伴い、多くのAI Agent 実装やA2Aプロトコルが登場していますが、その多くは業務や作業効率化を目的としています。`aikyo`は、業務や作業の効率化としてではなく、人間に寄り添い、 対等な会話をすることができるA2Aを目指しています。
+(https://aikyo.vercel.app/concept/ より)
 
 未踏ジュニア採択プロジェクト
 
@@ -96,7 +96,6 @@ Joyo High school テックコンテスト受賞作品
 ### [その他のプロジェクト](https://github.com/marukun712?tab=repositories)
 
 ---
-
 # 受賞/採択
 
 2026年度 サイボウズ・ラボユース 言語処理系コース 採択
