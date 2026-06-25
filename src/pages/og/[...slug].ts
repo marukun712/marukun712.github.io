@@ -25,7 +25,6 @@ export const { getStaticPaths, GET } = await OGImageRoute({
   pages,
   getImageOptions: (_, page) => ({
     title: page.title,
-    description: "marilの個人サイトです。",
     fonts: ["./src/fonts/SourceHanCodeJP.ttc"],
   }),
 });
