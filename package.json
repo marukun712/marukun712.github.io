@@ -16,6 +16,8 @@
     "@tailwindcss/vite": "^4.1.11",
     "@types/hast": "^3.0.4",
     "astro": "^5.11.0",
+    "astro-og-canvas": "^0.11.1",
+    "canvaskit-wasm": "^0.41.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "hast-util-classnames": "^3.0.0",

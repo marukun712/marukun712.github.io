@@ -27,7 +27,7 @@ const { note, path } = Astro.props;
 const { Content, remarkPluginFrontmatter } = await render(note);
 ---
 
-<Layout title={remarkPluginFrontmatter.title}>
+<Layout title={remarkPluginFrontmatter.title} ogImage={`/og/${Astro.params.slug}.png`}>
   {/* Title */}
   <Breadcrumbs path={path} type="notes" isFolder={false} />
   <NoteNavigation prev={note.data.prev} next={note.data.next} />
