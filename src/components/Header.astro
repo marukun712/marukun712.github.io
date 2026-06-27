@@ -1,10 +1,8 @@
 ---
-import ThemeToggle from "@/components/ThemeToggle";
 ---
 
-<header class="top-0 px-4 py-2 md:py-10 flex items-center">
-  <div class="size-9"></div>
-  <div class="flex h-4 text-center items-center space-x-2 text-sm mx-auto">
+<header class="top-0 px-4 py-2 md:py-10 flex items-center justify-center">
+  <div class="flex h-4 text-center items-center space-x-2 text-sm">
     <a
       href="/"
       class="text-foreground hover:text-foreground/80"
@@ -16,8 +14,11 @@ import ThemeToggle from "@/components/ThemeToggle";
       class="text-foreground hover:text-foreground/80"
       aria-label="notes"
     >notes</a>
-  </div>
-  <div class="size-9">
-    <ThemeToggle client:load />
+    <span class="text-foreground/60">|</span>
+    <a
+      href="/timeline"
+      class="text-foreground hover:text-foreground/80"
+      aria-label="timeline"
+    >timeline</a>
   </div>
 </header>

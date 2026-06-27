@@ -1,0 +1,60 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import { TIMELINE_NAME, TIMELINE_ICON, TIMELINE_BIO } from "@/config";
+
+const allNotes = await getCollection("notes");
+const dailyNotes = allNotes.filter((note) => note.id.startsWith("daily/"));
+
+type Post = { date: string; time: string; text: string };
+const posts: Post[] = [];
+
+for (const note of dailyNotes) {
+  const date = note.id.replace("daily/", "");
+  const lines = (note.body ?? "").split("\n");
+  for (const line of lines) {
+    const match = line.match(/^-\s+(\d{2}:\d{2})\s+(.+)$/);
+    if (match) {
+      posts.push({ date, time: match[1], text: match[2] });
+    }
+  }
+}
+
+posts.sort((a, b) =>
+  `${b.date} ${b.time}`.localeCompare(`${a.date} ${a.time}`)
+);
+---
+
+<Layout title="timeline">
+  <div class="max-w-xl mx-auto py-8">
+    <div class="flex items-start gap-4 pb-6 border-b border-border">
+      <img
+        src={TIMELINE_ICON}
+        alt={TIMELINE_NAME}
+        class="size-14 rounded-full object-cover"
+      />
+      <div class="flex flex-col gap-1">
+        <span class="font-medium text-foreground">{TIMELINE_NAME}</span>
+        {TIMELINE_BIO && (
+          <span class="text-sm text-muted-foreground">{TIMELINE_BIO}</span>
+        )}
+      </div>
+    </div>
+
+    <div class="divide-y divide-border">
+      {posts.map((post) => (
+        <div class="py-4">
+          <p class="text-sm text-foreground">{post.text}</p>
+          <p class="text-xs text-muted-foreground mt-2">
+            {post.time} &middot; {post.date}
+          </p>
+        </div>
+      ))}
+      {posts.length === 0 && (
+        <p class="py-8 text-sm text-muted-foreground text-center">
+          no posts yet
+        </p>
+      )}
+    </div>
+  </div>
+</Layout>
