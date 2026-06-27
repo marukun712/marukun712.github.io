@@ -40,7 +40,7 @@
 
 ## イキヅライブ聖地巡礼マップ
 
-https://marukun712.github.io/ikizulive-map/
+https://maril.blue/ikizulive-map/
 
 イキヅライブ！ LOVELIVE! BLUEBIRDの聖地情報をまとめた非公式サイトです。
 
