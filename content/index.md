@@ -26,10 +26,10 @@
 
 - GitHub https://github.com/marukun712
 - Twitter(旧X) https://x.com/maril_dev
-- atproto `did:plc:hbpzfim6uqz522avxupaud5y` (maril445.bsky.social)
-- ActivityPub `@maril@mstdn.schoolidol.club` `@maril@blog.maril.blue`
-- Nostr `npub1tscyn6tjf90fz4jsph80gzcu5w2q59kp855dw5py8ppegtcue22s8j42u8`
-- Discord `maril_445`
+- atproto did:plc:hbpzfim6uqz522avxupaud5y (maril445.bsky.social)
+- ActivityPub @maril@mstdn.schoolidol.club @maril@blog.maril.blue
+- Nostr npub1tscyn6tjf90fz4jsph80gzcu5w2q59kp855dw5py8ppegtcue22s8j42u8
+- Discord maril_445
 
 # Tech
 触ったことのある技術など
@@ -48,7 +48,7 @@ https://maril.blue/ikizulive-map/
 
 https://github.com/marukun712/kokoro
 
-`@kokoro/rig`は、エンジニアのための2Dキャラクターメッシュ変形ライブラリです。既存のツール・ライブラリはGUI操作を前提としており、表現としては豊かなものの、GUI・概念の学習コストが高く、すぐにキャラクターを動かすことができません。本ライブラリでは、キャラクターの変形に複雑な概念を用いません。キャラクターの変形は、すべて`(u,v) => 変形量`の関数として記述されます。ポーズの合成・補完も、関数を合成するような感覚で実装できます。さらに、深度推定モジュールと組み合わせることで、深度情報に基づいて各頂点の変形量が自動でスケールされます。
+@kokoro/rigは、エンジニアのための2Dキャラクターメッシュ変形ライブラリです。既存のツール・ライブラリはGUI操作を前提としており、表現としては豊かなものの、GUI・概念の学習コストが高く、すぐにキャラクターを動かすことができません。本ライブラリでは、キャラクターの変形に複雑な概念を用いません。キャラクターの変形は、すべて(u, v) => 変形量の関数として記述されます。ポーズの合成・補完も、関数を合成するような感覚で実装できます。さらに、深度推定モジュールと組み合わせることで、深度情報に基づいて各頂点の変形量が自動でスケールされます。
 (READMEより)
 
 サイボウズ・ラボユース採択プロジェクト
@@ -66,7 +66,7 @@ SecHack365採択プロジェクト
 
 https://github.com/marukun712/aikyo
 
-`aikyo`は、**人間と複数のAIコンパニオンが対等に会話**し、共存できる環境を 設計するための新しいフレームワークです。近年のLLMの進歩に伴い、多くのAI Agent 実装やA2Aプロトコルが登場していますが、その多くは業務や作業効率化を目的としています。`aikyo`は、業務や作業の効率化としてではなく、人間に寄り添い、 対等な会話をすることができるA2Aを目指しています。
+aikyoは、人間と複数のAIコンパニオンが対等に会話し、共存できる環境を 設計するための新しいフレームワークです。近年のLLMの進歩に伴い、多くのAI Agent 実装やA2Aプロトコルが登場していますが、その多くは業務や作業効率化を目的としています。aikyoは、業務や作業の効率化としてではなく、人間に寄り添い、 対等な会話をすることができるA2Aを目指しています。
 (https://aikyo.vercel.app/concept/ より)
 
 未踏ジュニア採択プロジェクト
@@ -112,3 +112,4 @@ https://github.com/marukun712?tab=repositories
 - KIDOU Global Conference
 - デジタル学園祭2025(大阪・関西万博)
 - ゲームメーカーズ スクランブル2024
+

@@ -1,6 +1,5 @@
-この記事は、麻布麻衣 Advent Calendar 1日目の記事です。 テスト投稿を兼ねています。
-
-=> https://adventar.org/calendars/12627 麻布麻衣 Advent Calendar
+この記事は、麻布麻衣 Advent Calendar 1日目の記事です。
+テスト投稿を兼ねています。
 
 # やること
 
@@ -56,6 +55,3 @@ m44GN44KF44KT
 きゅん
 ```
 
-# おわりに
-
-とにかく、神曲なので聞いてください。 こちら、神曲です。(ほの氏感)

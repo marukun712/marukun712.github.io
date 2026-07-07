@@ -65,7 +65,7 @@ world repository {
 
 これにより、署名やBlockstoreのロジックはホスト側の環境に合わせたものを使いながら、Wasm Component内で型安全に呼び出すことができます。
 
-`wit-bindgen`というツールで、Rust用のコードを生成することができます。
+wit-bindgenというツールで、Rust用のコードを生成することができます。
 
 ```sh
 wit-bindgen rust --out-dir src --default-bindings-module "crate::repository" --generate-all --world repository ./wit
@@ -74,7 +74,7 @@ wit-bindgen rust --out-dir src --default-bindings-module "crate::repository" --g
 # Rust実装
 
 生成されたコードをもとに、リポジトリを実装していきます。
-今回はATProtocolのRust実装である`atrium`を使わせていただき、このように実装しました。
+今回はATProtocolのRust実装であるatriumを使わせていただき、このように実装しました。
 
 https://github.com/atrium-rs/atrium
 
@@ -621,6 +621,3 @@ export async function init(sk: string, didKey: string) {
 
 repoの型定義が自動生成されているため、repo.getRecord(rpath)のようなwitで定義したメソッドを型保管が効いた状態で呼び出すことができます。
 
-# おわりに
-
-最後までお読みいただき、ありがとうございました。

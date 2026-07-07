@@ -1,18 +1,16 @@
-この記事は、Bluesky / ATProtocol Advent Calendar 202515日目の記事です。
-
-=> https://adventar.org/calendars/12255 Bluesky / ATProtocol Advent Calendar 2025
+この記事は、Bluesky / ATProtocol Advent Calendar 2025 15日目の記事です。
 
 # はじめに
 
-ATProtoを触っていると、一度や二度はブラウザでリポジトリを動かしたり、多言語でリポジトリを動かしたくなる時があるかと思います。
+ATProtocolを触っていると、一度や二度はブラウザでリポジトリを動かしたり、多言語でリポジトリを動かしたくなる時があるかと思います。
 
-そこで、今回はWasmの力を使って多言語で動くATProto Repositoryを作っていきます。
+そこで、今回はWasmの力を使って多言語で動くATProtocol Repositoryを作っていきます。
 
 # スキーマ定義
 
 Wasm Component Modelでは、WIT(WebAssembly Interface Types)で、コンポーネント間のモジュールが扱うデータ型などを定義することができます。
 
-ATProtoのリポジトリの基本的な操作ができるように、以下のようにスキーマ定義をします。
+ATProtocolのリポジトリの基本的な操作ができるように、以下のようにスキーマ定義をします。
 
 ```
 package polka:repository@0.1.0;
@@ -62,7 +60,8 @@ world repository {
 }
 ```
 
-ここで、肝となってくるのが、importという宣言です。 これは、Wasmのホスト側で実装するメソッドを宣言するためのもので、この例であれば、MSTルートへの署名処理と、リポジトリがつかうBlockstoreをホスト側で実装することができます。
+ここで、肝となってくるのが、importという宣言です。
+これは、Wasmのホスト側で実装するメソッドを宣言するためのもので、この例であれば、MSTルートへの署名処理と、リポジトリがつかうBlockstoreをホスト側で実装することができます。
 
 これにより、署名やBlockstoreのロジックはホスト側の環境に合わせたものを使いながら、Wasm Component内で型安全に呼び出すことができます。
 
@@ -74,11 +73,10 @@ wit-bindgen rust --out-dir src --default-bindings-module "crate::repository" --g
 
 # Rust実装
 
-生成されたコードをもとに、リポジトリを実装していきます。 今回はATProtoのRust実装であるatriumを使わせていただき、このように実装しました。
+生成されたコードをもとに、リポジトリを実装していきます。
+今回はATProtocolのRust実装であるatriumを使わせていただき、このように実装しました。
 
 https://github.com/atrium-rs/atrium
-
-=> https://github.com/atrium-rs/atrium https://github.com/atrium-rs/atrium
 
 ```rust
 mod repository;
@@ -322,14 +320,12 @@ impl repository::exports::polka::repository::repo::Guest for Component {
 repository::export!(Component with_types_in repository);
 ```
 
-生成されたコードで、&amp;selfがイミュータブルだったので、この記事を参考に内部可変性パターンというパターンで実装をしました。Rustむずかしい。 https://zenn.dev/chikoski/articles/wit-and-rust-resource
-
-=> https://zenn.dev/chikoski/articles/wit-and-rust-resource https://zenn.dev/chikoski/articles/wit-and-rust-resource
+生成されたコードで、&selfがイミュータブルだったので、この記事を参考に内部可変性パターンというパターンで実装をしました。Rustむずかしい。
+https://zenn.dev/chikoski/articles/wit-and-rust-resource
 
 また、wasip2では非同期処理を扱えないので、block_onで実行しています。
 
 Blockstoreは以下のように実装しました。
-
 ```rust
 use crate::repository::polka::repository::blockstore;
 use atrium_repo::blockstore::{AsyncBlockStoreRead, AsyncBlockStoreWrite, Error};
@@ -387,7 +383,8 @@ jcoコマンドで、Wasm CompoentからTypeScript用の型定義を生成する
 npx jco transpile wasm/repo.wasm -o dist/transpiled --instantiation=async
 ```
 
-順調に進んできましたが、ここで一つ問題があります。 前述したとおり、wasip2では非同期処理を扱うことができませんが、Nodejs用のBlockstore実装の多くが、非同期ベースで作成されています。
+順調に進んできましたが、ここで一つ問題があります。
+前述したとおり、wasip2では非同期処理を扱うことができませんが、Nodejs用のBlockstore実装の多くが、非同期ベースで作成されています。
 
 なので、atriumのCAR実装を参考に、同期処理ベースのCAR Blockstore CarSyncStoreを実装しました。
 
@@ -403,228 +400,224 @@ import varint from "varint";
 export const SHA2_256 = sha256.code;
 
 export class CidNotFound extends Error {
-    constructor() {
-        super("CID not found");
-    }
+	constructor() {
+		super("CID not found");
+	}
 }
 
 export class UnsupportedHash extends Error {
-    constructor(code: number) {
-        super(`Unsupported hash code: ${code}`);
-    }
+	constructor(code: number) {
+		super(`Unsupported hash code: ${code}`);
+	}
 }
 
 export type ErrorType = CidNotFound | UnsupportedHash;
 
-// ATProtoはCAR v1を使っているらしいので、v1を使うことにするCAR
+// ATProtocolはCAR v1を使っているらしいので、v1を使うことにするCAR
 export class CarSyncStore {
-    private path: string;
-    private roots: CID[];
-    private index: Map<string, { offset: number; length: number }>;
+	private path: string;
+	private roots: CID[];
+	private index: Map<string, { offset: number; length: number }>;
 
-    constructor(path: string) {
-        this.path = path;
-        this.roots = [];
-        this.index = new Map<string, { offset: number; length: number }>();
-    }
+	constructor(path: string) {
+		this.path = path;
+		this.roots = [];
+		this.index = new Map<string, { offset: number; length: number }>();
+	}
 
-    create() {
-        // CAR V1 ヘッダー
-        const header = {
-            version: 1,
-            roots: this.roots.map((cid) => cid.bytes),
-        }; // DAG-CBORでエンコードする
-        const headerEncoded = encode(header);
-        // ヘッダーの長さを可変長整数でエンコードする
-        const unsignedVarint = varint.encode(headerEncoded.length);
-        //ファイルの書き込み
-        writeFileSync(this.path, Buffer.from(unsignedVarint));
-        writeFileSync(this.path, headerEncoded, { flag: "a" });
-    }
+	create() {
+		// CAR V1 ヘッダー
+		const header = {
+			version: 1,
+			roots: this.roots.map((cid) => cid.bytes),
+		}; // DAG-CBORでエンコードする
+		const headerEncoded = encode(header);
+		// ヘッダーの長さを可変長整数でエンコードする
+		const unsignedVarint = varint.encode(headerEncoded.length);
+		//ファイルの書き込み
+		writeFileSync(this.path, Buffer.from(unsignedVarint));
+		writeFileSync(this.path, headerEncoded, { flag: "a" });
+	}
 
-    updateIndex() {
-        this.index.clear();
-        const data: Uint8Array = readFileSync(this.path);
-        let offset = 0;
+	updateIndex() {
+		this.index.clear();
+		const data: Uint8Array = readFileSync(this.path);
+		let offset = 0;
 
-        // ヘッダー長を読み取る
-        const headerLen = varint.decode(data, offset);
-        if (!varint.decode.bytes) {
-            throw new Error("Invalid header length");
-        }
-        offset += varint.decode.bytes;
+		// ヘッダー長を読み取る
+		const headerLen = varint.decode(data, offset);
+		if (!varint.decode.bytes) {
+			throw new Error("Invalid header length");
+		}
+		offset += varint.decode.bytes;
 
-        // ヘッダー本体を読み取る
-        const headerBytes = data.slice(offset, offset + headerLen);
-        offset += headerLen;
-        const header: { version: number; roots: Uint8Array[] } =
-            decode(headerBytes);
-        this.roots = header.roots.map((r: Uint8Array) => CID.decode(r));
+		// ヘッダー本体を読み取る
+		const headerBytes = data.slice(offset, offset + headerLen);
+		offset += headerLen;
+		const header: { version: number; roots: Uint8Array[] } =
+			decode(headerBytes);
+		this.roots = header.roots.map((r: Uint8Array) => CID.decode(r));
 
-        while (offset < data.length) {
-            // ブロック長
-            const blockLen = varint.decode(data, offset);
-            if (!varint.decode.bytes) {
-                throw new Error("Invalid header length");
-            }
-            offset += varint.decode.bytes;
-            // CID
-            const slice = data.subarray(offset);
-            const [cid, remainder] = CID.decodeFirst(slice);
-            // 読み取った CID の長さだけ offset を進める
-            offset += slice.length - remainder.length;
-            // ブロック内容を取り出す
-            const contentLen = blockLen - cid.bytes.length;
-            const content = remainder.subarray(0, contentLen);
-            // SHA-256検証
-            if (cid.multihash.code === 0x12) {
-                const digest = createHash(content);
-                const encoded = Digest.create(SHA2_256, digest);
-                const expectedCid = CID.create(1, cid.code, encoded);
-                if (!cid.equals(expectedCid)) {
-                    throw new Error("Invalid block hash");
-                }
-            }
-            // index登録
-            this.index.set(cid.toString(), { offset, length: contentLen });
-            offset += contentLen;
-        }
-    }
+		while (offset < data.length) {
+			// ブロック長
+			const blockLen = varint.decode(data, offset);
+			if (!varint.decode.bytes) {
+				throw new Error("Invalid header length");
+			}
+			offset += varint.decode.bytes;
+			// CID
+			const slice = data.subarray(offset);
+			const [cid, remainder] = CID.decodeFirst(slice);
+			// 読み取った CID の長さだけ offset を進める
+			offset += slice.length - remainder.length;
+			// ブロック内容を取り出す
+			const contentLen = blockLen - cid.bytes.length;
+			const content = remainder.subarray(0, contentLen);
+			// SHA-256検証
+			if (cid.multihash.code === 0x12) {
+				const digest = createHash(content);
+				const encoded = Digest.create(SHA2_256, digest);
+				const expectedCid = CID.create(1, cid.code, encoded);
+				if (!cid.equals(expectedCid)) {
+					throw new Error("Invalid block hash");
+				}
+			}
+			// index登録
+			this.index.set(cid.toString(), { offset, length: contentLen });
+			offset += contentLen;
+		}
+	}
 
-    updateHeaderRoots(newRoots: CID[]) {
-        this.roots = newRoots;
-        // CARヘッダーを再エンコード
-        const header = {
-            version: 1,
-            roots: this.roots.map((cid) => cid.bytes),
-        };
-        const headerEncoded = encode(header);
-        const headerLenVarint = varint.encode(headerEncoded.length);
-        // ファイル全体を読み込む
-        const data = readFileSync(this.path);
-        // 既存ヘッダーの長さを読み取る
-        let offset = 0;
-        const oldHeaderLen = varint.decode(data, offset);
-        if (!varint.decode.bytes) throw new Error("Invalid header length");
-        offset += varint.decode.bytes;
-        const oldHeaderTotalLen = offset + oldHeaderLen;
-        const restOfFile = new Uint8Array(data).slice(oldHeaderTotalLen);
-        // 新しいヘッダーを書き込む
-        const newHeader = Buffer.concat([
-            Buffer.from(headerLenVarint),
-            Buffer.from(headerEncoded),
-        ]);
-        // ファイルを上書き
-        writeFileSync(this.path, Buffer.concat([newHeader, restOfFile]));
-        // indexを更新
-        this.updateIndex();
-    }
+	updateHeaderRoots(newRoots: CID[]) {
+		this.roots = newRoots;
+		// CARヘッダーを再エンコード
+		const header = {
+			version: 1,
+			roots: this.roots.map((cid) => cid.bytes),
+		};
+		const headerEncoded = encode(header);
+		const headerLenVarint = varint.encode(headerEncoded.length);
+		// ファイル全体を読み込む
+		const data = readFileSync(this.path);
+		// 既存ヘッダーの長さを読み取る
+		let offset = 0;
+		const oldHeaderLen = varint.decode(data, offset);
+		if (!varint.decode.bytes) throw new Error("Invalid header length");
+		offset += varint.decode.bytes;
+		const oldHeaderTotalLen = offset + oldHeaderLen;
+		const restOfFile = new Uint8Array(data).slice(oldHeaderTotalLen);
+		// 新しいヘッダーを書き込む
+		const newHeader = Buffer.concat([
+			Buffer.from(headerLenVarint),
+			Buffer.from(headerEncoded),
+		]);
+		// ファイルを上書き
+		writeFileSync(this.path, Buffer.concat([newHeader, restOfFile]));
+		// indexを更新
+		this.updateIndex();
+	}
 
-    writeBlock(codec: number, hash: number, contents: Uint8Array): Uint8Array {
-        if (hash !== SHA2_256) {
-            throw new UnsupportedHash(hash);
-        }
-        // コンテンツからCIDを算出
-        const digest = createHash(contents);
-        const encoded = Digest.create(SHA2_256, digest);
-        const cid = CID.create(1, codec, encoded);
-        // セクションは | varint | CID | contents | の形式で構成される
-        const blockBuffer = Buffer.from(contents);
-        const cidBuffer = Buffer.from(cid.bytes);
-        // ブロック全体の長さを可変長整数でエンコード
-        // varintはCID + contentsの長さを表す
-        const lengthVarint = varint.encode(blockBuffer.length + cidBuffer.length);
-        const varintBuffer = Buffer.from(lengthVarint);
-        const fileBuffer = readFileSync(this.path);
-        // コンテンツが始まる場所を記録
-        const contentOffset =
-            fileBuffer.length + lengthVarint.length + cidBuffer.length;
-        writeFileSync(this.path, varintBuffer, { flag: "a" });
-        writeFileSync(this.path, cidBuffer, { flag: "a" });
-        writeFileSync(this.path, blockBuffer, { flag: "a" });
-        this.index.set(cid.toString(), {
-            offset: contentOffset,
-            length: contents.length,
-        });
-        return cid.bytes;
-    }
+	writeBlock(codec: number, hash: number, contents: Uint8Array): Uint8Array {
+		if (hash !== SHA2_256) {
+			throw new UnsupportedHash(hash);
+		}
+		// コンテンツからCIDを算出
+		const digest = createHash(contents);
+		const encoded = Digest.create(SHA2_256, digest);
+		const cid = CID.create(1, codec, encoded);
+		// セクションは | varint | CID | contents | の形式で構成される
+		const blockBuffer = Buffer.from(contents);
+		const cidBuffer = Buffer.from(cid.bytes);
+		// ブロック全体の長さを可変長整数でエンコード
+		// varintはCID + contentsの長さを表す
+		const lengthVarint = varint.encode(blockBuffer.length + cidBuffer.length);
+		const varintBuffer = Buffer.from(lengthVarint);
+		const fileBuffer = readFileSync(this.path);
+		// コンテンツが始まる場所を記録
+		const contentOffset =
+			fileBuffer.length + lengthVarint.length + cidBuffer.length;
+		writeFileSync(this.path, varintBuffer, { flag: "a" });
+		writeFileSync(this.path, cidBuffer, { flag: "a" });
+		writeFileSync(this.path, blockBuffer, { flag: "a" });
+		this.index.set(cid.toString(), {
+			offset: contentOffset,
+			length: contents.length,
+		});
+		return cid.bytes;
+	}
 
-    readBlock(cid: CID, out: Uint8Array[]) {
-        // indexからブロックの開始バイトを取得
-        const block = this.index.get(cid.toString());
-        if (!block) {
-            throw new CidNotFound();
-        }
-        out.length = 0;
-        const data = readFileSync(this.path);
-        const content = new Uint8Array(data).slice(
-            block.offset,
-            block.offset + block.length,
-        );
-        out.push(content);
-    }
+	readBlock(cid: CID, out: Uint8Array[]) {
+		// indexからブロックの開始バイトを取得
+		const block = this.index.get(cid.toString());
+		if (!block) {
+			throw new CidNotFound();
+		}
+		out.length = 0;
+		const data = readFileSync(this.path);
+		const content = new Uint8Array(data).slice(
+			block.offset,
+			block.offset + block.length,
+		);
+		out.push(content);
+	}
 
-    getRoots() {
-        return this.roots;
-    }
+	getRoots() {
+		return this.roots;
+	}
 }
 ```
 
 このCarSyncStoreを使って、TypeScript側で、このように呼び出すことができます。
-
 ```typescript
 export async function init(sk: string, didKey: string) {
-    // WASMのロード
-    const loader = async (path: string) => {
-        const buf = readFileSync(`./dist/transpiled/${path}`);
-        return await WebAssembly.compile(new Uint8Array(buf));
-    };
+	// WASMのロード
+	const loader = async (path: string) => {
+		const buf = readFileSync(`./dist/transpiled/${path}`);
+		return await WebAssembly.compile(new Uint8Array(buf));
+	};
 
-    const store = new CarSyncStore(path);
+	const store = new CarSyncStore(path);
 
-    // importする関数をバインド
-    const wasm = await instantiate(loader, {
-        //@ts-expect-error
-        "polka:repository/crypto": {
-            sign: (bytes: Uint8Array) => {
-                const skBytes = hexToBytes(sk);
-                const sig = secp256k1.sign(bytes, skBytes);
-                return sig;
-            },
-        },
-        "polka:repository/blockstore": {
-            readBlock: (cid: Uint8Array) => {
-                const parsed = CID.decode(cid);
-                const out: Uint8Array[] = [];
-                store.readBlock(parsed, out);
-                if (!out[0]) throw new Error("Block not found.");
-                return out[0];
-            },
-            writeBlock: (codec: bigint, hash: bigint, contents: Uint8Array) => {
-                return store.writeBlock(Number(codec), Number(hash), contents);
-            },
-        },
-        ...new WASIShim().getImportObject<"0.2.6">(),
-    });
+	// importする関数をバインド
+	const wasm = await instantiate(loader, {
+		//@ts-expect-error
+		"polka:repository/crypto": {
+			sign: (bytes: Uint8Array) => {
+				const skBytes = hexToBytes(sk);
+				const sig = secp256k1.sign(bytes, skBytes);
+				return sig;
+			},
+		},
+		"polka:repository/blockstore": {
+			readBlock: (cid: Uint8Array) => {
+				const parsed = CID.decode(cid);
+				const out: Uint8Array[] = [];
+				store.readBlock(parsed, out);
+				if (!out[0]) throw new Error("Block not found.");
+				return out[0];
+			},
+			writeBlock: (codec: bigint, hash: bigint, contents: Uint8Array) => {
+				return store.writeBlock(Number(codec), Number(hash), contents);
+			},
+		},
+		...new WASIShim().getImportObject<"0.2.6">(),
+	});
 
-    // repoを開く
-    if (existsSync(path)) {
-        store.updateIndex();
-        const roots = store.getRoots();
-        if (!roots[0]) throw new Error("Root not found.");
-        return { repo: wasm.repo.open(didKey, roots[0].toString()), store };
-    } else {
-        store.create();
-        const repo = wasm.repo.create(didKey);
-        const root = repo.getRoot();
-        store.updateHeaderRoots([CID.parse(root)]);
-        return { repo, store };
-    }
+	// repoを開く
+	if (existsSync(path)) {
+		store.updateIndex();
+		const roots = store.getRoots();
+		if (!roots[0]) throw new Error("Root not found.");
+		return { repo: wasm.repo.open(didKey, roots[0].toString()), store };
+	} else {
+		store.create();
+		const repo = wasm.repo.create(didKey);
+		const root = repo.getRoot();
+		store.updateHeaderRoots([CID.parse(root)]);
+		return { repo, store };
+	}
 }
 ```
 
 repoの型定義が自動生成されているため、repo.getRecord(rpath)のようなwitで定義したメソッドを型保管が効いた状態で呼び出すことができます。
 
-# おわりに
-
-最後までお読みいただき、ありがとうございました。
