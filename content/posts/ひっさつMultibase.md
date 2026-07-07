@@ -1,5 +1,6 @@
-この記事は、[麻布麻衣 Advent Calendar](https://adventar.org/calendars/12627) 1日目の記事です。
+この記事は、麻布麻衣 Advent Calendar 1日目の記事です。
 テスト投稿を兼ねています。
+
 # やること
 
 必殺マイマイモード きゅんを(いろいろなMultibaseでエンコードしてから)デコードしちゃえ
@@ -53,10 +54,3 @@ m44GN44KF44KT
 94196746272484408656531
 きゅん
 ```
-
-# おわりに
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/b_CAZeJlSos?si=1LxIIizsmG14Y2Ft" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-とにかく、神曲なので聞いてください。
-こちら、神曲です。(ほの氏感)

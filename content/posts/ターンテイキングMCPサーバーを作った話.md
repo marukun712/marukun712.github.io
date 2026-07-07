@@ -1,4 +1,4 @@
-この記事は、[AIパートナー・AIキャラ・AIVtuber Advent Calendar 2025](https://qiita.com/advent-calendar/2025/ai-character) 16日目の記事です。
+この記事は、AIパートナー・AIキャラ・AIVtuber Advent Calendar 2025 16日目の記事です。
 
 初めまして、marilと申します。
 未踏ジュニアというプログラムで、AIエージェント同士を相互に会話させるフレームワークの開発などをしていました。

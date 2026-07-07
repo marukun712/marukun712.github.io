@@ -1,16 +1,16 @@
-この記事は、[Bluesky / ATProtocol Advent Calendar 2025](https://adventar.org/calendars/12255)15日目の記事です。
+この記事は、Bluesky / ATProtocol Advent Calendar 2025 15日目の記事です。
 
 # はじめに
 
-ATProtoを触っていると、一度や二度はブラウザでリポジトリを動かしたり、多言語でリポジトリを動かしたくなる時があるかと思います。
+ATProtocolを触っていると、一度や二度はブラウザでリポジトリを動かしたり、多言語でリポジトリを動かしたくなる時があるかと思います。
 
-そこで、今回はWasmの力を使って多言語で動くATProto Repositoryを作っていきます。
+そこで、今回はWasmの力を使って多言語で動くATProtocol Repositoryを作っていきます。
 
 # スキーマ定義
 
 Wasm Component Modelでは、WIT(WebAssembly Interface Types)で、コンポーネント間のモジュールが扱うデータ型などを定義することができます。
 
-ATProtoのリポジトリの基本的な操作ができるように、以下のようにスキーマ定義をします。
+ATProtocolのリポジトリの基本的な操作ができるように、以下のようにスキーマ定義をします。
 
 ```
 package polka:repository@0.1.0;
@@ -60,7 +60,7 @@ world repository {
 }
 ```
 
-ここで、肝となってくるのが、`import`という宣言です。
+ここで、肝となってくるのが、importという宣言です。
 これは、Wasmのホスト側で実装するメソッドを宣言するためのもので、この例であれば、MSTルートへの署名処理と、リポジトリがつかうBlockstoreをホスト側で実装することができます。
 
 これにより、署名やBlockstoreのロジックはホスト側の環境に合わせたものを使いながら、Wasm Component内で型安全に呼び出すことができます。
@@ -74,7 +74,7 @@ wit-bindgen rust --out-dir src --default-bindings-module "crate::repository" --g
 # Rust実装
 
 生成されたコードをもとに、リポジトリを実装していきます。
-今回はATProtoのRust実装である`atrium`を使わせていただき、このように実装しました。
+今回はATProtocolのRust実装である`atrium`を使わせていただき、このように実装しました。
 
 https://github.com/atrium-rs/atrium
 
@@ -320,7 +320,7 @@ impl repository::exports::polka::repository::repo::Guest for Component {
 repository::export!(Component with_types_in repository);
 ```
 
-生成されたコードで、`&self`がイミュータブルだったので、この記事を参考に`内部可変性パターン`というパターンで実装をしました。Rustむずかしい。
+生成されたコードで、&selfがイミュータブルだったので、この記事を参考に内部可変性パターンというパターンで実装をしました。Rustむずかしい。
 https://zenn.dev/chikoski/articles/wit-and-rust-resource
 
 また、wasip2では非同期処理を扱えないので、block_onで実行しています。
@@ -357,7 +357,7 @@ impl AsyncBlockStoreWrite for Wasip2Blockstore {
 }
 ```
 
-`use crate::repository::polka::repository::blockstore;`というのが、wit定義でimportと宣言したblockstore interfaceになります。
+use crate::repository::polka::repository::blockstore;というのが、wit定義でimportと宣言したblockstore interfaceになります。
 
 # ビルド・Nodejsで実行
 
@@ -367,7 +367,7 @@ Wasm Componentをビルドします。
 cargo build --target=wasm32-wasip2 --release
 ```
 
-`repo.wasm`というファイルが生成されます。
+repo.wasmというファイルが生成されます。
 
 それでは、生成されたWasm Componentを、Nodejsで実行してみましょう。
 
@@ -377,7 +377,7 @@ cargo build --target=wasm32-wasip2 --release
 npm i @bytecodealliance/jco @bytecodealliance/preview2-shim
 ```
 
-`jco`コマンドで、Wasm CompoentからTypeScript用の型定義を生成することができます。
+jcoコマンドで、Wasm CompoentからTypeScript用の型定義を生成することができます。
 
 ```sh
 npx jco transpile wasm/repo.wasm -o dist/transpiled --instantiation=async
@@ -386,7 +386,7 @@ npx jco transpile wasm/repo.wasm -o dist/transpiled --instantiation=async
 順調に進んできましたが、ここで一つ問題があります。
 前述したとおり、wasip2では非同期処理を扱うことができませんが、Nodejs用のBlockstore実装の多くが、非同期ベースで作成されています。
 
-なので、atriumのCAR実装を参考に、同期処理ベースのCAR Blockstore `CarSyncStore`を実装しました。
+なので、atriumのCAR実装を参考に、同期処理ベースのCAR Blockstore CarSyncStoreを実装しました。
 
 ```typescript
 import { readFileSync, writeFileSync } from "node:fs";
@@ -413,7 +413,7 @@ export class UnsupportedHash extends Error {
 
 export type ErrorType = CidNotFound | UnsupportedHash;
 
-// ATProtoはCAR v1を使っているらしいので、v1を使うことにするCAR
+// ATProtocolはCAR v1を使っているらしいので、v1を使うことにするCAR
 export class CarSyncStore {
 	private path: string;
 	private roots: CID[];
@@ -567,7 +567,7 @@ export class CarSyncStore {
 }
 ```
 
-この`CarSyncStore`を使って、TypeScript側で、このように呼び出すことができます。
+このCarSyncStoreを使って、TypeScript側で、このように呼び出すことができます。
 ```typescript
 export async function init(sk: string, didKey: string) {
 	// WASMのロード
@@ -619,11 +619,8 @@ export async function init(sk: string, didKey: string) {
 }
 ```
 
-`repo`の型定義が自動生成されているため、`repo.getRecord(rpath)`のようなwitで定義したメソッドを型保管が効いた状態で呼び出すことができます。
+repoの型定義が自動生成されているため、repo.getRecord(rpath)のようなwitで定義したメソッドを型保管が効いた状態で呼び出すことができます。
 
 # おわりに
 
 最後までお読みいただき、ありがとうございました。
-
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LF8Kva-tIjM?si=N4Twa6hmHQmUDvg7" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

@@ -1,9 +1,9 @@
 IWSDKでは、WebXRデバッグのため、なんと自己証明書を用いて自動的に開発サーバーのHTTPS化を行ってくれる。
 (WebXR Device APIにはHTTPSが必須)
 
-しかし、WebXRフロントエンドからなんらかの開発APIを呼び出したい場合、開発APIサーバーもHTTPS化しないと`Mixed Content`エラーとなる。
+しかし、WebXRフロントエンドからなんらかの開発APIを呼び出したい場合、開発APIサーバーもHTTPS化しないとMixed Contentエラーとなる。
 
-そこで、`vite`の`proxy`を使い、開発サーバーをHTTPS化する。
+そこで、viteのproxyを使い、開発サーバーをHTTPS化する。
 
 ```typescript
 server: {
@@ -19,4 +19,4 @@ server: {
 }
 ```
 
-これで、/apiにアクセスすると、`http://localhost:8080/`にプロキシされる。
+これで、/apiにアクセスすると、http://localhost:8080/にプロキシされる。
