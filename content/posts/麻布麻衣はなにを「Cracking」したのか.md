@@ -3,7 +3,7 @@
 
 今回は、いきづらい部！のメンバー、麻布麻衣のソロ曲であるPublic Styleの中の、「cracking 真夜中のデスク」という一節について考察します。
 
-https://www.youtube.com/watch?v=KLZ1MtYKYgc
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KLZ1MtYKYgc?si=miQjXi_pU5dIz3UT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 (筆者はLLD未履修です)
 
@@ -81,7 +81,7 @@ cracking 真夜中のデスク
 
 そんな麻衣ちゃんですが、最近は好きにやってみた動画で楽しそうにTRONについて語っています。
 
-https://www.youtube.com/shorts/rf3T6nSKumQ
+<iframe width="560" height="315" src="https://www.youtube.com/embed/rf3T6nSKumQ?si=o5z2G1s2mN0b4C0s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ポルカちゃんもノリノリで合いの手を入れていますね。麻衣ちゃんはいきづらい部という、猫を被らずに自分の好きなことができる「居場所」を見つけたのでしょう。
 
