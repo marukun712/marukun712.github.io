@@ -3,7 +3,7 @@
 
 今回は、いきづらい部！のメンバー、麻布麻衣のソロ曲であるPublic Styleの中の、「cracking 真夜中のデスク」という一節について考察します。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/KLZ1MtYKYgc?si=miQjXi_pU5dIz3UT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[いきづらい部！ 麻布麻衣 Solo Song「Public Style」リリックビデオ【イキヅライブ！ LOVELIVE! BLUEBIRD】](https://www.youtube.com/watch?v=KLZ1MtYKYgc)
 
 (筆者はLLD未履修です)
 
@@ -19,11 +19,11 @@
 
 ですが、本来このイメージに当たる言葉こそが「クラッキング」です。
 
-https://e-words.jp/w/%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0.html
+[クラッキング（クラック）とは - IT用語辞典 e-Words](https://e-words.jp/w/%E3%82%AF%E3%83%A9%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0.html)
 
 ハッキングという言葉は本来、システムの複雑な課題を解決したり、システムの安全性に貢献するような行いをするなど、肯定的な意味で用いられてきました。よく使われる言葉で言うと、ホワイトハッカー(またはホワイトハットハッカー)に近いかもしれません。
 
-https://e-words.jp/w/%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0.html
+[ハッキング（ハック）とは - IT用語辞典 e-Words](https://e-words.jp/w/%E3%83%8F%E3%83%83%E3%82%AD%E3%83%B3%E3%82%B0.html)
 
 それに対して、クラッキングは犯罪を目的とした悪意ある攻撃を指す言葉として区別されてきました。
 
@@ -81,7 +81,7 @@ cracking 真夜中のデスク
 
 そんな麻衣ちゃんですが、最近は好きにやってみた動画で楽しそうにTRONについて語っています。
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/rf3T6nSKumQ?si=o5z2G1s2mN0b4C0s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+[#好きにやってみた動画 「1分で効率良くわかるTRON」麻布麻衣【イキヅライブ！ LOVELIVE! BLUEBIRD】](https://www.youtube.com/shorts/rf3T6nSKumQ)
 
 ポルカちゃんもノリノリで合いの手を入れていますね。麻衣ちゃんはいきづらい部という、猫を被らずに自分の好きなことができる「居場所」を見つけたのでしょう。
 
