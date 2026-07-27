@@ -1,7 +1,7 @@
 はじめまして。marilと申します。
 普段はパソコンをしたりイキヅライバーをしたりしている学生です。
 
-今回は、いきづらい部！のメンバー、麻布麻衣のソロ曲であるPublic Styleの中の、「cracking 真夜中のデスク」という一節について考察します。
+今回は、いきづらい部！のメンバー、麻布麻衣のソロ曲であるPublic Styleの、「cracking 真夜中のデスク」という一節について考察します。
 
 [いきづらい部！ 麻布麻衣 Solo Song「Public Style」リリックビデオ【イキヅライブ！ LOVELIVE! BLUEBIRD】](https://www.youtube.com/watch?v=KLZ1MtYKYgc)
 
