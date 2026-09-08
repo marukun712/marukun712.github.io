@@ -4,6 +4,8 @@
 > maril
 ```
 
+<img style="height:150px; border-radius: 50%;" src="https://cdn.bsky.app/img/avatar/plain/did:web:nijiiro.maril.blue/bafkreibp2wqdnoqlqodlxfsodyrmnrjrmxc7ttclztrrbre77yki33foui" />
+
 ---
 
 - 分散システム・デジタルキャラクターまわりの技術
@@ -40,7 +42,7 @@
 
 ATProtocol, DIDまわりがメイン
 
-<img style="height:200px" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/at-protocol-kawaii.png" />
+<img style="height:150px" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/at-protocol-kawaii.png" />
 
 ![My Skills](https://skillicons.dev/icons?i=ts,py,go,rust,nix,html,css,deno,bun,nodejs,solidjs,threejs)
 
