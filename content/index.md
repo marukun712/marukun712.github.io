@@ -1,7 +1,12 @@
 # $ whoami
 
 ```
-> maril
+███╗   ███╗  █████╗  ██████╗  ██╗ ██╗     
+████╗ ████║ ██╔══██╗ ██╔══██╗ ██║ ██║     
+██╔████╔██║ ███████║ ██████╔╝ ██║ ██║     
+██║╚██╔╝██║ ██╔══██║ ██╔══██╗ ██║ ██║     
+██║ ╚═╝ ██║ ██║  ██║ ██║  ██║ ██║ ███████╗
+╚═╝     ╚═╝ ╚═╝  ╚═╝ ╚═╝  ╚═╝ ╚═╝ ╚══════╝
 ```
 
 ---
@@ -15,8 +20,8 @@
 - ラブライバー(主にイキヅライブ・虹)
 - ポルまい、あゆせつ、とまマルなど....
 - 綾咲穂音/遠藤璃菜/坂野愛羽/宮野芹
-- N高グループラブライブ同好会部長
 - ラブライブ学会運営
+- N高ラ研部長
 
 ---
 
@@ -26,7 +31,6 @@
 - コスプレ撮影・フィギュア撮影・聖地巡礼などします
 
 ---
-
 # SNS/identifier
 
 - GitHub https://github.com/marukun712
@@ -36,11 +40,16 @@
 - Nostr npub1tscyn6tjf90fz4jsph80gzcu5w2q59kp855dw5py8ppegtcue22s8j42u8
 - Discord maril_445
 
-# Tech
-触ったことのある技術など
+---
+# Skills
 
-![My Skills](https://skillicons.dev/icons?i=ts,js,py,cs,go,rust,ruby,nix,html,css,bun,nodejs,remix,nextjs,tailwind,threejs,vscode,linux,git,github,docker,unity)
+ATProtocol, DIDまわりがメイン
 
+<img height="200" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/at-protocol-kawaii.png" />
+
+![My Skills](https://skillicons.dev/icons?i=ts,py,go,rust,nix,html,css,deno,bun,nodejs,solidjs,threejs)
+
+---
 # Projects
 
 https://github.com/marukun712?tab=repositories
