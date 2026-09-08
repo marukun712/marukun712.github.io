@@ -40,7 +40,7 @@
 
 ATProtocol, DIDまわりがメイン
 
-<img height="100" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/at-protocol-kawaii.png" />
+<img style="height:50px" src="https://cdn.jsdelivr.net/gh/homarr-labs/dashboard-icons/png/at-protocol-kawaii.png" />
 
 ![My Skills](https://skillicons.dev/icons?i=ts,py,go,rust,nix,html,css,deno,bun,nodejs,solidjs,threejs)
 
