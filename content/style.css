@@ -1,0 +1,53 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaisei+Decol&family=Zen+Maru+Gothic&display=swap");
+
+body {
+	background-image: url("https://sozaino.site/wp-content/uploads/2024/03/oshi-haikeis00006.png");
+	font-family: "Zen Maru Gothic", sans-serif;
+	font-weight: 400;
+	font-style: normal;
+	max-width: 50%;
+	margin: auto;
+}
+
+main {
+	background: white;
+	border-radius: 50px;
+	padding: 24px;
+}
+
+h1 {
+	font-family: "Kaisei Decol", serif;
+	font-weight: 400;
+	font-style: normal;
+
+	background: linear-gradient(90deg, #be64ff 30%, #8e3aff 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+a {
+	display: inline-block;
+	padding: 12px 24px;
+	margin: 6px;
+	background: linear-gradient(90deg, #e284ff 30%, #af4afd 100%);
+	color: white;
+	border-radius: 50px;
+}
+
+code {
+	border-radius: 12px;
+	padding: 24px;
+}
+
+hr {
+	height: 7px;
+	border: none;
+	border-top: 2px solid hsl(327 53% 54%);
+	border-bottom: 2px solid hsl(327 53% 54%);
+}
+
+@media screen and (max-width: 480px) {
+	body {
+		max-width: 95%;
+	}
+}
