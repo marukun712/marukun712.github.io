@@ -15,6 +15,11 @@ main {
 	padding: 24px;
 }
 
+main * {
+	max-width: 100%;
+	overflow-wrap: anywhere;
+}
+
 h1 {
 	font-family: "Kaisei Decol", serif;
 	font-weight: 400;
