@@ -46,7 +46,7 @@ hr {
 	border-bottom: 2px solid hsl(327 53% 54%);
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
 	body {
 		max-width: 95%;
 	}
