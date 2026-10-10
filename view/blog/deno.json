@@ -46,7 +46,7 @@
 		"new": {
 			"description": "Create new content or code using artifacts",
 			"command": "deno task lume new"
-		},
+		}
 	},
 	"compilerOptions": {
 		"types": ["lume/types.ts"],
