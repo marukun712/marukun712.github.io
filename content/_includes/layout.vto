@@ -5,28 +5,38 @@
     <title>{{ basename || "maril.blue" }}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="https://unpkg.com/7.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/styles/tokyo-night-dark.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.12.0/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
   </head>
   <body>
-    <header>
-	    <h1>maril.blue</h1>
-	    <p>marilの個人サイト</p>	 
-    </header>
-    <aside>
-      <nav>
-        <ul>
-          {{ for page of search.pages() }}
-            {{ if page.basename != "" }}
-              <li><a href="{{ page.url }}">{{ page.basename }}</a></li>
-            {{ /if }}
-          {{ /for }}
+    <div class="window active">
+      <div class="title-bar">
+        <div class="title-bar-text">maril.blue</div>
+        <div class="title-bar-controls">
+          <button aria-label="Minimize"></button>
+          <button aria-label="Maximize"></button>
+          <button aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="window-body">
+        <ul role="menubar" class="can-hover">
+          <li role="menuitem" tabindex="0" aria-haspopup="true">
+            ファイル 
+            <ul role="menu">
+              {{ for page of search.pages() }}
+                {{ if page.basename != "" }}
+                  <li role="menuitem"><a href="{{ page.url }}">{{ page.basename }}</a></li>
+                {{ /if }}
+              {{ /for }}
+            </ul>
+          </li>
         </ul>
-      </nav>
-    </aside>
-    <main>
-      {{ content }}
-    </main>
+        <main>
+          {{ content }}
+        </main>
+      </div>
+    </div>
   </body>
 </html>
