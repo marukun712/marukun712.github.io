@@ -1,1 +1,5 @@
-{}
+{
+  "attachmentFolderPath": "content/image",
+  "useMarkdownLinks": true,
+  "newLinkFormat": "absolute"
+}
