@@ -34,6 +34,9 @@
           </li>
         </ul>
         <main>
+          {{ if basename }}
+            <h1>{{ basename }}</h1>
+          {{ /if }}
           {{ content }}
         </main>
       </div>
