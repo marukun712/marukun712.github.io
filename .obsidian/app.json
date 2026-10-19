@@ -2,5 +2,7 @@
   "attachmentFolderPath": "content/image",
   "useMarkdownLinks": false,
   "newLinkFormat": "absolute",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "newFileLocation": "folder",
+  "newFileFolderPath": "content/posts"
 }
