@@ -3,6 +3,11 @@ main {
 	font-size: 120%;
 }
 
+main img {
+	max-width: 100%;
+	height: auto;
+}
+
 code {
 	border-radius: 12px;
 	padding: 24px;
