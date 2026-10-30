@@ -30,7 +30,7 @@
 # SNS/identifier
 
 - GitHub https://github.com/marukun712
-- Twitter(旧X) https://x.com/maril_dev
+- Twitter(旧X) https://x.com/chihayanon445
 - atproto did:plc:hbpzfim6uqz522avxupaud5y did:web:nijiiro.maril.blue
 - ActivityPub @maril@mstdn.schoolidol.club
 - Nostr npub1tscyn6tjf90fz4jsph80gzcu5w2q59kp855dw5py8ppegtcue22s8j42u8
