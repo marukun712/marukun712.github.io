@@ -4,7 +4,7 @@
 > maril
 ```
 
-<img style="height:150px; border-radius: 50%;" src="https://cdn.bsky.app/img/avatar/plain/did:web:nijiiro.maril.blue/bafkreibp2wqdnoqlqodlxfsodyrmnrjrmxc7ttclztrrbre77yki33foui" />
+<img style="height:150px; border-radius: 50%;" src="https://cdn.bsky.app/img/avatar/plain/did:plc:hbpzfim6uqz522avxupaud5y/bafkreihcaptjn3lsn3uyp2frv4p3t7f6biddeuuhs7wmbwqwywlgm6i5be" />
 
 ---
 
