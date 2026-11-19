@@ -4,7 +4,7 @@
 > maril
 ```
 
-<img style="height:150px; border-radius: 50%;" src="https://cdn.bsky.app/img/avatar/plain/did:plc:hbpzfim6uqz522avxupaud5y/bafkreihcaptjn3lsn3uyp2frv4p3t7f6biddeuuhs7wmbwqwywlgm6i5be" />
+<img style="height:150px; border-radius: 50%;" src="https://avatars.githubusercontent.com/u/87289638?v=4" />
 
 ---
 
