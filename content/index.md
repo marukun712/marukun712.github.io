@@ -8,32 +8,23 @@
 
 ---
 
-- 分散システム・デジタルキャラクターまわりの技術
+- ATProtocol、DID、ネットワーク、デジタルキャラクター技術
 - HackTheBox Hacker
 - https://app.hackthebox.com/profile/2134559
 
 ---
 
 - ラブライバー(主にイキヅライブ・虹)
-- ポルまい、あゆせつ、とまマルなど....
-- 綾咲穂音/遠藤璃菜/坂野愛羽/宮野芹
 - ラブライブ学会運営
 - N高ラ研部長
-
----
-
-- カメラ
-- Panasonic LUMIX DMC-GH3を使っています
-- コスプレ撮影・フィギュア撮影・聖地巡礼などします
 
 ---
 # SNS/identifier
 
 - GitHub https://github.com/marukun712
 - Twitter(旧X) https://x.com/chihayanon445
-- atproto did:plc:hbpzfim6uqz522avxupaud5y did:web:nijiiro.maril.blue
+- atproto did:plc:hbpzfim6uqz522avxupaud5y
 - ActivityPub @maril@mstdn.schoolidol.club
-- Nostr npub1tscyn6tjf90fz4jsph80gzcu5w2q59kp855dw5py8ppegtcue22s8j42u8
 - Discord maril_445
 
 ---
@@ -61,9 +52,14 @@ https://github.com/marukun712?tab=repositories
 
 # 展示/発表
 
+- SecHack365 Returns 2026
 - Interop Tokyo 2026 NICTブース
 - SecHack365 2025年度 成果発表会
 - 未踏ジュニア  2025年 成果報告会
 - KIDOU Global Conference
 - デジタル学園祭2025(大阪・関西万博)
 - ゲームメーカーズ スクランブル2024
+
+# NOC
+
+- SecHack365 NOC
